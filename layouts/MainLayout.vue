@@ -7,7 +7,8 @@
         <div>
             <SideNavMain />
         </div>
-       
+        
+        <slot />
     </div>
     <div>
 
