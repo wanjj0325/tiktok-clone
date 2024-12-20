@@ -1,5 +1,5 @@
 <template>
-  
+    <UploadError :errorType="errorType"/>
     <UploadLayout>
         <div class="w-full mt-[80px] mb-[40px] bg-white shadow-lg rounded-md py-6 md:px-10 px-4">
             <div>
@@ -166,6 +166,14 @@ let caption = ref('')
 let fileData = ref(null)
 let errors = ref(null)
 let isUploading = ref(false)
+
+watch(() => caption.value, (caption) => {
+    if (caption.length >= 150) {
+        errorType.value = 'caption'
+        return
+    }
+    errorType.value = null
+})
 
 const onChange = () => {
     fileDisplay.value = URL.createObjectURL(file.value.files[0])
