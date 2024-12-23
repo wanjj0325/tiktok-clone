@@ -1,7 +1,5 @@
 # Tiktok Clone (tiktok-clone)
 ## About This Project
-This project was created for learning purposes, based on the YouTube tutorial by [John Weeks Dev](https://www.youtube.com/watch?v=CHSL0Btbj_o).  
-The goal of this project is to enhance my understanding of [specific technologies or frameworks].
 # Application Images
 <img width="1439" src="https://github.com/user-attachments/assets/22d8b866-3f3a-440e-a926-2d3eb9d715df">
 <img width="1439" src="https://github.com/user-attachments/assets/8e2a38fe-0735-4536-87fb-901c7955562e">
