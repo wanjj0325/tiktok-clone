@@ -39,7 +39,7 @@
             />
 
             <div 
-                v-if="true"
+                v-if="!isLoaded"
                 class="flex items-center justify-center bg-black bg-opacity-70 h-screen lg:min-w-[480px]"
             >
                 <Icon class="animate-spin ml-1 text-white" name="mingcute:loading-line" size="100" color="#FFFFFF"/>
@@ -198,10 +198,37 @@
     </div>
 </template>
 
-<script setup  lang="ts">
+<script setup >
 
+const route = useRoute()
+const router = useRouter()
+
+let video = ref(null)
+let isLoaded = ref(false)
 let comment = ref(null)
 let inputFocused = ref(false)
 
+
+onMounted(() => {
+    video.value.addEventListener('loadeddata', (e) => {
+            if (e.target) {
+                setTimeout(() => {
+                    isLoaded.value = true
+                }, 200)
+            }
+    });
+})
+
+onBeforeUnmount(() => {
+    video.value.pause()
+    video.value.currentTime = 0
+    video.value.src = ''
+})
+
+watch(() => isLoaded.value, () => {
+    if (isLoaded.value) {
+        setTimeout(() => video.value.play(), 500)
+    }
+})
 </script>
 
